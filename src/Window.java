@@ -132,10 +132,24 @@ public class Window {
             }
         };
 
+        ActionListener computeSumListener = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                try {
+                    float sum = Float.valueOf(field1.getText()).floatValue() + Float.valueOf(field2.getText()).floatValue();
+                    midLabel.setText("Results : " + sum);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(objFrame, "Error Input Format", "Message From App", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
+
         /**Attach the Listener to the Button */
         btnClick.addActionListener(btnListener);
         
         btnClear.addActionListener(clearFieldsListener);
+
+        btnAdd.addActionListener(computeSumListener);
     }
 
     
